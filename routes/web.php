@@ -18,6 +18,11 @@ Route::get('/', function () {
 return view('hey');
 
 });
+Route::get('/post/{id}/{name}', function ($id,$name) {
+    // return view('welcome');
+return "This is post number". $id." ".$name ;
+
+});
 
 Route::get('/about',function(){
     return 'About';
