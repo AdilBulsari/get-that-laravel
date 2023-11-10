@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\PostsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,23 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    // return view('welcome');
-return view('hey');
 
-});
-Route::get('/post/{id}/{name}', function ($id,$name) {
-    // return view('welcome');
-return "This is post number". $id." ".$name ;
+Route::get('/post/{id}',[PostsController::class,'index']);
 
-});
-
-Route::get('/about',function(){
-    return 'About';
-});
-
-// php artisan route:list => to view list of routes
-Route::get('admin/post/example',array('as'=>'admin.home',function(){
-$url = route('admin.home');
-return "this url is ". $url;
-}));
+Route::resource('posts',PostsController::class);
