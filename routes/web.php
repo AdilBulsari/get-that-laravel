@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\PostsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,12 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    // return view('welcome');
-return view('hey');
 
-});
+Route::get('/post/{id}',[PostsController::class,'index']);
 
-Route::get('/about',function(){
-    return 'About';
-});
+Route::resource('posts',PostsController::class);
