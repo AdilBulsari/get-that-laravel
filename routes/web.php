@@ -27,3 +27,9 @@ return "This is post number". $id." ".$name ;
 Route::get('/about',function(){
     return 'About';
 });
+
+// php artisan route:list => to view list of routes
+Route::get('admin/post/example',array('as'=>'admin.home',function(){
+$url = route('admin.home');
+return "this url is ". $url;
+}));
