@@ -34,7 +34,7 @@ class User extends Authenticatable
     ];
 
     /**
-     * The attributes that should be cast.
+     * The attributes that should be cast. 
      *
      * @var array<string, string>
      */
@@ -42,4 +42,17 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    //query
+    public function post()
+    {
+        return $this->hasOne('App\Models\Post');
+    }
+    public function posts()
+    {
+        return $this->hasMany('App\Models\Post');
+    }
+    public function roles(){
+        return $this->belongsToMany('App\Models\role');
+    }
 }

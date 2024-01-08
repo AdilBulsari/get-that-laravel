@@ -47,7 +47,7 @@ class PostsController extends Controller
     public function edit(string $id)
     {
         //
-    }
+    }               
 
     /**
      * Update the specified resource in storage.
@@ -63,5 +63,16 @@ class PostsController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function contact(){
+        $people=['adil','sam','jimmy','simon'];
+
+        return view('pages/contact',compact('people'));
+    }
+    public function showPost($id,$name){
+        // return view('pages/post')->with('id',$id);
+
+        return view('pages/post',compact('id','name'));
     }
 }
