@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,11 +15,18 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    // return view('welcome');
-return view('hey');
+    return view('welcome');
 
 });
 
-Route::get('/about',function(){
-    return 'About';
+Route::post('/app/create_tag',[AdminController::class,'addTag']);
+Route::get('/app/get_tags',[AdminController::class,'getTags']);
+Route::patch('/app/edit_tag',[AdminController::class,'editTag']);
+Route::delete('/app/delete_tag',[AdminController::class,'deleteTag']);
+Route::post('app/upload',[AdminController::class,'upload']);
+
+// Route::get('/new',[TestController::class,'test']);
+
+Route::any('{any}',function(){
+return view('welcome');
 });
